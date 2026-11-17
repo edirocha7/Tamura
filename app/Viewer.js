@@ -2,15 +2,17 @@
 import { useState, useEffect } from 'react';
 const L = { pdf: 'PDF', jpg: 'Imagem JPG', html: 'Página HTML', link: 'Link' };
 export default function Viewer({ items }) {
-  const [q, setQ] = useState(''), [o, setO] = useState(null), [h, setH] = useState('');
+  const [q, setQ] = useState(''), [o, setO] = useState(null), [h, setH] = useState(''), [cat, setCat] = useState('Todas');
   useEffect(() => { setH(''); if (o?.kind === 'html') fetch(o.url).then((r) => r.text()).then(setH).catch(() => setH('<p>Não foi possível carregar.</p>')); }, [o]);
-  const f = items.filter((i) => i.title.toLowerCase().includes(q.toLowerCase()));
+  const cats = [...new Set(items.map((i) => i.category || 'Geral'))].sort();
+  const f = items.filter((i) => (cat === 'Todas' || (i.category || 'Geral') === cat) && i.title.toLowerCase().includes(q.toLowerCase()));
   return (<>
     <input className="in" type="search" placeholder="Buscar por título…" value={q} onChange={(e) => setQ(e.target.value)} />
+    {cats.length > 1 && <div className="chips">{['Todas', ...cats].map((c) => <button key={c} className={'chip' + (c === cat ? ' on' : '')} onClick={() => setCat(c)}>{c}</button>)}</div>}
     {f.length ? <div className="grid">{f.map((i) => (
       <div className="card" key={i.id}>
         <span className="tag">{L[i.kind]}</span><h3>{i.title}</h3>
-        <div className="meta">Publicado em {new Date(i.createdAt).toLocaleDateString('pt-BR')}</div>
+        <div className="meta">Publicado em {new Date(i.createdAt).toLocaleDateString('pt-BR')} · {i.category || 'Geral'}</div>
         <div className="acts">{i.kind === 'link'
           ? <a className="btn p" href={i.url} target="_blank" rel="noopener noreferrer">Abrir</a>
           : <><button className="btn p" onClick={() => setO(i)}>Visualizar</button><a className="btn" href={i.url + '?download=1'}>Baixar</a></>}</div>

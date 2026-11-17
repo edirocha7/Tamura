@@ -1,3 +1,6 @@
 import './globals.css';
-export const metadata = { title: 'Repositório de Arquivos On-line', description: 'Consulte, visualize e baixe documentos sem login.' };
-export default function Layout({ children }) { return <html lang="pt-BR"><body>{children}</body></html>; }
+import { brand } from '../lib/brand';
+export const metadata = { title: brand.name, description: brand.tagline };
+export default function Layout({ children }) {
+  return <html lang="pt-BR" style={{ '--ac': brand.color, '--ac2': brand.textOnColor }}><body>{children}</body></html>;
+}
