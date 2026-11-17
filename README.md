@@ -1,4 +1,4 @@
-# Repositório de Arquivos On-line repo
+# Repositório de Arquivos On-line
 
 Landing pública (`/`) para ver/baixar PDF, JPG, HTML e links sem login + painel do administrador (`/admin`) protegido por senha. Next.js 14 + Vercel Blob.
 
