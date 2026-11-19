@@ -27,7 +27,7 @@ footer{margin-top:36px;text-align:center;color:var(--mu);font-size:13px}
 .nav{display:flex;gap:6px;padding-top:6px}.nav a{padding:8px 16px;border-radius:99px;color:var(--mu);text-decoration:none;font-weight:600}.nav a.on{background:var(--ac);color:var(--ac2)}
 .evg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:16px}
 .evt{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.banner{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#222}
+.banner{width:100%;aspect-ratio:16/9;object-fit:contain;display:block;background:#000}
 .evb{display:flex;gap:14px;padding:14px}.dt{flex:0 0 58px;height:64px;border-radius:10px;background:var(--ac);color:var(--ac2);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}.dt b{font-size:24px}.dt span{font-size:12px;font-weight:700}
 .evi{min-width:0;display:flex;flex-direction:column;gap:4px}.ev{color:var(--ac);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}.evi h3{margin:0;font-size:18px}
 .when{color:var(--mu);font-size:14px}.when::first-letter{text-transform:uppercase}.loc{font-size:14px;word-break:break-word}
