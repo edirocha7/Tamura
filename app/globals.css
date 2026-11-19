@@ -36,3 +36,4 @@ footer{margin-top:36px;text-align:center;color:var(--mu);font-size:13px}
 .thumb{width:72px;height:40px;object-fit:cover;border-radius:6px;flex-shrink:0}
 .ar{display:flex;gap:10px;align-items:center;border-top:1px solid var(--bd);padding:10px 0}.ar>div:nth-child(2){flex:1;min-width:0}.bt{display:flex;gap:8px;flex-shrink:0}
 .fr{display:grid;gap:10px;grid-template-columns:1fr 1fr}@media(max-width:560px){.fr{grid-template-columns:1fr}.ar{flex-wrap:wrap}}
+.card{overflow:hidden}.card .banner{margin:-16px -16px 0;width:calc(100% + 32px);max-width:none;cursor:pointer}

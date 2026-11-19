@@ -11,6 +11,7 @@ export default function Viewer({ items }) {
     {cats.length > 1 && <div className="chips">{['Todas', ...cats].map((c) => <button key={c} className={'chip' + (c === cat ? ' on' : '')} onClick={() => setCat(c)}>{c}</button>)}</div>}
     {f.length ? <div className="grid">{f.map((i) => (
       <div className="card" key={i.id}>
+        {i.kind === 'jpg' && <img className="banner" src={i.url} alt={i.title} loading="lazy" onClick={() => setO(i)} />}
         <span className="tag">{L[i.kind]}</span><h3>{i.title}</h3>
         <div className="meta">Publicado em {new Date(i.createdAt).toLocaleDateString('pt-BR')} · {i.category || 'Geral'}</div>
         <div className="acts">{i.kind === 'link'
