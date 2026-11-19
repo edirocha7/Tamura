@@ -7,7 +7,7 @@ export async function POST(request) {
     return NextResponse.json(await handleUpload({ body, request,
       onBeforeGenerateToken: async () => {
         if (!isAdmin()) throw new Error('Não autorizado');
-        return { allowedContentTypes: ['application/pdf', 'image/jpeg', 'text/html'], maximumSizeInBytes: 50 * 1024 * 1024, addRandomSuffix: true };
+        return { allowedContentTypes: ['application/pdf', 'image/jpeg', 'image/png', 'image/webp', 'image/svg+xml', 'text/html'], maximumSizeInBytes: 50 * 1024 * 1024, addRandomSuffix: true };
       },
       onUploadCompleted: async () => {} }));
   } catch (e) { return NextResponse.json({ error: e.message }, { status: 400 }); }

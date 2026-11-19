@@ -28,7 +28,7 @@ export default function AdminAgenda({ events }) {
   async function del(id) { if (!confirm('Excluir esta etapa?')) return; await fetch('/api/agenda?id=' + id, { method: 'DELETE' }); if (ed === id) reset(); r.refresh(); }
   async function out() { await fetch('/api/login', { method: 'DELETE' }); r.refresh(); }
   return (<>
-    <div className="hero"><h1>📅 Agenda – Painel</h1><p><a href="/admin">← Arquivos</a> · <a href="/agenda">Ver agenda pública</a> · <button className="lnk" onClick={out}>Sair</button></p></div>
+    <div className="hero"><h1>📅 Agenda – Painel</h1><p><a href="/admin">← Arquivos</a> · <a href="/admin/patrocinadores">Patrocinadores</a> · <a href="/agenda">Ver agenda pública</a> · <button className="lnk" onClick={out}>Sair</button></p></div>
     <form className="panel" onSubmit={save}><h2>{ed ? 'Editar etapa' : 'Nova etapa'}</h2>
       <div className="fr"><div><label>Nome do evento</label><input className="in" value={f.event} maxLength={100} onChange={set('event')} placeholder="Ex.: Circuito Tamura de Corrida" /></div>
         <div><label>Nome da etapa</label><input className="in" value={f.stage} maxLength={100} onChange={set('stage')} placeholder="Ex.: 3ª Etapa – Itapevi" /></div></div>

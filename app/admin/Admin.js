@@ -35,7 +35,7 @@ export default function Admin({ items }) {
   }
   async function out() { await fetch('/api/login', { method: 'DELETE' }); r.refresh(); }
   return (<>
-    <div className="hero"><h1>⚙️ Painel do administrador</h1><p><a href="/">Ver site público</a> · <a href="/admin/agenda">Gerenciar agenda</a> · <button className="lnk" onClick={out}>Sair</button></p></div>
+    <div className="hero"><h1>⚙️ Painel do administrador</h1><p><a href="/">Ver site público</a> · <a href="/admin/agenda">Gerenciar agenda</a> · <a href="/admin/patrocinadores">Patrocinadores</a> · <button className="lnk" onClick={out}>Sair</button></p></div>
     <form className="panel" onSubmit={add}><h2>Novo conteúdo</h2>
       <div className="row"><div><label>Título do documento</label><input className="in" value={t} maxLength={120} onChange={(e) => setT(e.target.value)} /></div>
         <div><label>Formato</label><select className="in" value={k} onChange={(e) => { setK(e.target.value); setF(null); }}>{Object.keys(L).map((x) => <option key={x} value={x}>{L[x]}</option>)}</select></div></div>

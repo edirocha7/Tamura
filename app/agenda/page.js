@@ -1,6 +1,7 @@
 import { getEvents } from '../../lib/agenda';
 import { brand } from '../../lib/brand';
 import Nav from '../Nav';
+import Sponsors from '../Sponsors';
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Agenda – ' + brand.name, description: 'Datas das próximas etapas e eventos.' };
 const TZ = 'America/Sao_Paulo';
@@ -41,6 +42,7 @@ export default async function Agenda() {
       <div className="hero">{brand.logo && <img className="logo" src={brand.logo} alt={brand.name} />}<h1>Agenda de Eventos</h1><p>Acompanhe as datas das próximas etapas.</p></div>
       {next.length ? <div className="evg">{next.map((e) => <Card key={e.id} e={e} diff={days(e.date)} now={e.date < today} />)}</div> : <div className="empty">Nenhuma etapa agendada no momento.</div>}
       {past.length > 0 && <><h2 className="sec">Eventos anteriores</h2><div className="evg">{past.map((e) => <Card key={e.id} e={e} past />)}</div></>}
+      <Sponsors />
     </main>
   );
 }
